@@ -128,7 +128,7 @@ h2 { font-size: 36px; }
 .btn:hover { transform: translateY(-2px); filter: brightness(1.06); }
 .btn:active { transform: translateY(1px); border-bottom-width: 3px; }
 .btn:focus-visible, a:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
-.note { text-align: center; font-size: 13px; color: var(--muted); margin: 14px 0 0; }
+.note, .intro .note { text-align: center; font-size: 13px; color: var(--muted); margin: 18px 0 0; }
 
 /* ---------- Form ---------- */
 .form-card { padding: 30px 16px 22px; scroll-margin-top: 16px; }
