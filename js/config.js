@@ -14,8 +14,8 @@ window.GS_CONFIG = {
   FORM_HEIGHT_MOBILE: 1600,
 
   // Supabase → Project Settings → API
-  SUPABASE_URL: "https://YOUR-PROJECT-ID.supabase.co",
-  SUPABASE_ANON_KEY: "PASTE_ANON_PUBLIC_KEY_HERE",
+  SUPABASE_URL: "https://jxxndqdupcdhzmyavhfc.supabase.co",
+  SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp4eG5kcWR1cGNkaHpteWF2aGZjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTEyNjkzNDYsImV4cCI6MjEwNjg0NTM0Nn0.pGJSnajlQYjejjkXPpLD9kjF_Viub5pZh5pXYmaB1LM",
 
   CAMPAIGN: "gs_club_s2"
 };
