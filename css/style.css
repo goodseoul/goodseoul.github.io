@@ -74,41 +74,41 @@ h1 { font-size: 44px; }
 h2 { font-size: 36px; }
 .intro p { margin: 0 0 8px; }
 
-/* ---------- Steps ---------- */
-.steps {
+.hl { color: var(--red); white-space: nowrap; }
+
+/* ---------- Perks ---------- */
+.perks {
   list-style: none;
   padding: 0;
-  margin: 24px 0 26px;
+  margin: 22px 0 26px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
-.step {
-  position: relative;
-  border-radius: 16px;
-  padding: 18px 16px 20px;
+.perk {
   display: flex;
-  flex-direction: column;
-  color: var(--white);
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--muted);
 }
-.step-1 { background: var(--yellow); color: var(--navy); }
-.step-2 { background: var(--pink); }
-.step-3 { background: var(--green); }
-.step .num { font-family: var(--display); font-size: 44px; line-height: 40px; }
-.step .title { font-family: var(--display); font-size: 24px; line-height: 26px; padding-top: 6px; }
-.step .text { font-size: 14px; line-height: 20px; padding-top: 6px; }
-.step .here {
-  position: absolute;
-  top: -10px; right: 10px;
-  background: var(--navy);
-  color: var(--white);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .05em;
-  text-transform: uppercase;
-  padding: 3px 9px;
-  border-radius: 20px;
+.perk strong { display: block; color: var(--navy); font-size: 14px; }
+.perk-icon {
+  flex: 0 0 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  background: var(--white);
 }
+.perk-yellow { background: #FEF4DC; }
+.perk-pink   { background: #FCE4EF; }
+.perk-green  { background: #E0F3E7; }
 
 /* ---------- Button ---------- */
 .btn {
@@ -134,6 +134,7 @@ h2 { font-size: 36px; }
 .form-card { padding: 30px 16px 22px; scroll-margin-top: 16px; }
 .form-head { padding: 0 16px; text-align: center; }
 .form-head p { margin: 0 0 14px; color: var(--muted); font-size: 15px; }
+.form-head p.eyebrow { margin: 0 0 4px; color: var(--red); font-size: 13px; }
 .form-frame {
   position: relative;
   min-height: 420px;
@@ -194,7 +195,7 @@ h2 { font-size: 36px; }
 @media (max-width: 600px) {
   .card { padding: 28px 20px; }
   h1 { font-size: 38px; }
-  .steps { grid-template-columns: 1fr; gap: 12px; }
+  .perks { grid-template-columns: 1fr; gap: 8px; }
   .btn { width: 100%; text-align: center; padding: 17px 20px; }
   .hero { padding-bottom: 100px; }
   main.container { margin-top: -80px; }
