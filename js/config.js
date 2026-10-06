@@ -7,7 +7,7 @@ window.GS_CONFIG = {
   // OPTIONAL (recommended): links each survey answer back to the person you emailed.
   // Add a short-answer question to the form called "Reference code", then get its
   // entry ID from "Get pre-filled link" (looks like entry.123456789). Leave "" to skip.
-  REF_ENTRY_ID: "entry.365583741",
+  REF_ENTRY_ID: "",
 
   // Height of the embedded form in pixels. Increase if your form shows a scrollbar.
   FORM_HEIGHT_DESKTOP: 880,
