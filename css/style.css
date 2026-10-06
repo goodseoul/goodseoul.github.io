@@ -139,7 +139,7 @@ h2 { font-size: 36px; }
   min-height: 420px;
   border-radius: 14px;
   overflow: hidden;
-  background: #F6F7FB;
+  background: #FFFFFF;
   scroll-margin-top: 16px;
 }
 .form-frame iframe { display: block; width: 100%; border: 0; background: transparent; }

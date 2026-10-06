@@ -10,8 +10,8 @@ window.GS_CONFIG = {
   REF_ENTRY_ID: "entry.891240896",
 
   // Height of the embedded form in pixels. Increase if your form shows a scrollbar.
-  FORM_HEIGHT_DESKTOP: 1250,
-  FORM_HEIGHT_MOBILE: 1600,
+  FORM_HEIGHT_DESKTOP: 880,
+  FORM_HEIGHT_MOBILE: 1050,
 
   // Supabase → Project Settings → API
   SUPABASE_URL: "https://jxxndqdupcdhzmyavhfc.supabase.co",
