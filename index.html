@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Good Seoul Club | Season 2. Starring you.</title>
+<meta name="description" content="You were at the Good Seoul booth at Comic-Con Abu Dhabi. Take the 2-minute survey and join the Good Seoul Club.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#C1222A">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Season 2. Starring you. | Good Seoul Club">
+<meta property="og:description" content="Take the 2-minute survey, chat with the Good Seoul team and take home a goodie bag.">
+<meta property="og:image" content="assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <img class="logo" src="assets/logo.png" alt="Good Seoul" width="64">
+    <div class="hero-card">
+      <img src="assets/hero.jpg" alt="Season 2. Starring you. You were at the Good Seoul booth at Comic-Con Abu Dhabi." width="1200" height="1300">
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="card intro">
+    <p class="eyebrow">Welcome to the Good Seoul Club</p>
+    <h1>You're in. Here's how it works.</h1>
+    <p>Thanks for queuing at our booth at Comic-Con Abu Dhabi! Tell us honestly what you think of our food and help us make it even better.</p>
+
+    <ol class="steps">
+      <li class="step step-1">
+        <span class="here">You are here</span>
+        <span class="num">1</span>
+        <span class="title">2-minute survey</span>
+        <span class="text">Answer a few quick questions and you're in the prize draw.</span>
+      </li>
+      <li class="step step-2">
+        <span class="num">2</span>
+        <span class="title">30-minute video chat</span>
+        <span class="text">We pick a few people to chat with the Good Seoul team, at a time that suits you.</span>
+      </li>
+      <li class="step step-3">
+        <span class="num">3</span>
+        <span class="title">Goodie bag</span>
+        <span class="text">Everyone we chat with gets a Good Seoul goodie bag, delivered to your door.</span>
+      </li>
+    </ol>
+
+    <a class="btn" href="#survey">Start the survey</a>
+    <p class="note">Under 18? Please ask a parent or guardian before you start.</p>
+  </section>
+
+  <section class="card form-card" id="survey">
+    <div class="form-head">
+      <h2>The 2-minute survey</h2>
+      <p>Your answers are private and only used for research.</p>
+    </div>
+    <div class="form-frame" id="formFrame">
+      <div class="loader" id="loader"><span></span>Loading the survey&hellip;</div>
+      <div class="form-missing" id="formMissing" hidden>
+        The survey link hasn't been set yet. (Admin: add FORM_URL in <code>js/config.js</code>.)
+      </div>
+    </div>
+    <p class="fallback">Survey not loading? <a id="formNewTab" href="#" target="_blank" rel="noopener">Open it in a new tab</a></p>
+  </section>
+
+  <section class="goodies">
+    <img src="assets/goodie-bag.jpg" alt="Chat with us. Take these home: Good Seoul dumplings, fried chicken, corn dogs, topokki and rapokki." width="1200" height="800" loading="lazy">
+    <div class="goodies-text">
+      <p>Spots for the chat are limited, so the sooner you answer, the better your chances.</p>
+      <a href="#survey">Count me in</a>
+      <small>Goodie bag contents may vary.</small>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p class="signoff">Have a good Seoul,<br><strong>The Good Seoul team</strong></p>
+  <p>Instagram <a href="https://instagram.com/haveagoodseoul" target="_blank" rel="noopener">@haveagoodseoul</a></p>
+  <p class="small">&copy; 2026 Good Seoul Korean Food Company &middot; Abu Dhabi, UAE</p>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/track.js"></script>
+<script>
+(function () {
+  var cfg = window.GS_CONFIG;
+  var frame = document.getElementById("formFrame");
+  var url = cfg.FORM_URL || "";
+  var valid = /docs\.google\.com\/forms\/.+\/viewform/.test(url);
+
+  GS.track("page_view");
+
+  if (!valid) {
+    document.getElementById("loader").hidden = true;
+    document.getElementById("formMissing").hidden = false;
+    document.querySelector(".fallback").hidden = true;
+    return;
+  }
+
+  // Build the form URL: embedded mode + optional reference code pre-fill
+  var u = new URL(url);
+  u.searchParams.delete("usp");
+  u.searchParams.set("hl", "en");
+  if (cfg.REF_ENTRY_ID && GS.emailHash) u.searchParams.set(cfg.REF_ENTRY_ID, GS.emailHash);
+  if (cfg.REF_ENTRY_ID && GS.emailHash) u.searchParams.set("usp", "pp_url");
+  document.getElementById("formNewTab").href = u.toString();
+  u.searchParams.set("embedded", "true");
+
+  var iframe = document.createElement("iframe");
+  iframe.title = "Good Seoul Club survey";
+  iframe.src = u.toString();
+  iframe.loading = "eager";
+  function setHeight() {
+    iframe.style.height = (window.innerWidth < 640 ? cfg.FORM_HEIGHT_MOBILE : cfg.FORM_HEIGHT_DESKTOP) + "px";
+  }
+  setHeight();
+  window.addEventListener("resize", setHeight);
+
+  // Each iframe load = a new form page (load 1 = opened; further loads = next page / submitted)
+  var loads = 0;
+  iframe.addEventListener("load", function () {
+    loads++;
+    document.getElementById("loader").hidden = true;
+    if (loads === 1) { GS.track("form_loaded"); return; }
+    GS.track("form_page_" + loads);
+    frame.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+  frame.appendChild(iframe);
+
+  var started = false;
+  document.querySelectorAll('a[href="#survey"]').forEach(function (a) {
+    a.addEventListener("click", function () { if (!started) { started = true; GS.track("cta_click"); } });
+  });
+})();
+</script>
+</body>
+</html>

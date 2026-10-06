@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unsubscribe | Good Seoul</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#C1222A">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main class="container simple">
+  <section class="card">
+    <img class="logo" src="assets/logo.png" alt="Good Seoul" width="64">
+
+    <div id="ask">
+      <h1>Unsubscribe?</h1>
+      <p>We'll stop sending you Good Seoul Club emails. No hard feelings.</p>
+      <button class="btn" id="confirm" type="button" style="border:0; border-bottom:5px solid var(--red-dark); cursor:pointer; font-family:inherit;">Yes, unsubscribe me</button>
+    </div>
+
+    <div id="done" hidden>
+      <h1>You're unsubscribed</h1>
+      <p>You won't get any more emails from this campaign. Changed your mind? Just reply to any of our emails.</p>
+      <p><a href="https://instagram.com/haveagoodseoul" style="color:var(--red); font-weight:700;">Follow @haveagoodseoul</a> to keep up with us.</p>
+    </div>
+
+    <div id="missing" hidden>
+      <h1>Hmm, that link looks incomplete</h1>
+      <p>Please reply to our email with "unsubscribe" and we'll remove you right away.</p>
+    </div>
+  </section>
+</main>
+
+<script src="js/config.js"></script>
+<script src="js/track.js"></script>
+<script>
+  if (!GS.emailHash) {
+    document.getElementById("ask").hidden = true;
+    document.getElementById("missing").hidden = false;
+  }
+  document.getElementById("confirm").addEventListener("click", function () {
+    this.disabled = true;
+    this.textContent = "One moment…";
+    GS.unsubscribe().then(function () {
+      document.getElementById("ask").hidden = true;
+      document.getElementById("done").hidden = false;
+    });
+  });
+</script>
+</body>
+</html>
