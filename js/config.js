@@ -2,12 +2,12 @@
 window.GS_CONFIG = {
   // Google Form → Send → link icon → copy. Must contain "/viewform", NOT "/edit".
   // e.g. https://docs.google.com/forms/d/e/1FAIpQLSxxxxxxxx/viewform
-  FORM_URL: "https://docs.google.com/forms/d/e/1FAIpQLScem1vcjWtRn38MSwk7i1FcDOe3w9cro_wCThkH7Ghy-U4vdA/viewform",
+  FORM_URL: "https://docs.google.com/forms/d/e/1FAIpQLSdpnLb5ewRBd1SRtUtYuAupmQshirmtn664k_KaG-0GEK2-Wg/viewform",
 
   // OPTIONAL (recommended): links each survey answer back to the person you emailed.
   // Add a short-answer question to the form called "Reference code", then get its
   // entry ID from "Get pre-filled link" (looks like entry.123456789). Leave "" to skip.
-  REF_ENTRY_ID: "entry.891240896",
+  REF_ENTRY_ID: "entry.365583741",
 
   // Height of the embedded form in pixels. Increase if your form shows a scrollbar.
   FORM_HEIGHT_DESKTOP: 880,
